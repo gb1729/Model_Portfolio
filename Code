@@ -1,0 +1,165 @@
+Sub ConditFormat()
+'
+' ConditFormat Macro
+'
+
+'
+    Range("M4:M29").Select
+    With Selection.FormatConditions(1)
+        .MinPoint.Modify newtype:=xlConditionValueAutomaticMin
+        .MaxPoint.Modify newtype:=xlConditionValueAutomaticMax
+    End With
+    With Selection.FormatConditions(1).BarColor
+        .Color = 13012579
+        .TintAndShade = 0
+    End With
+    Selection.FormatConditions(1).BarFillType = xlDataBarFillGradient
+    Selection.FormatConditions(1).Direction = xlContext
+    Selection.FormatConditions(1).NegativeBarFormat.ColorType = xlDataBarColor
+    Selection.FormatConditions(1).BarBorder.Type = xlDataBarBorderSolid
+    Selection.FormatConditions(1).NegativeBarFormat.BorderColorType = _
+        xlDataBarColor
+    With Selection.FormatConditions(1).BarBorder.Color
+        .Color = 13012579
+        .TintAndShade = 0
+    End With
+    Selection.FormatConditions(1).AxisPosition = xlDataBarAxisAutomatic
+    With Selection.FormatConditions(1).AxisColor
+        .Color = 0
+        .TintAndShade = 0
+    End With
+    With Selection.FormatConditions(1).NegativeBarFormat.Color
+        .Color = 255
+        .TintAndShade = 0
+    End With
+    With Selection.FormatConditions(1).NegativeBarFormat.BorderColor
+        .Color = 255
+        .TintAndShade = 0
+    End With
+End Sub
+Sub Clearformats()
+'
+' Clearformats Macro
+'
+
+'
+    Columns("M:M").Select
+    Selection.Clearformats
+End Sub
+Sub percentofrmat()
+'
+' percentofrmat Macro
+'
+
+'
+    Range("M3").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.Style = "Percent"
+
+End Sub
+Sub bold()
+'
+' bold Macro
+'
+
+'
+    Selection.Font.bold = True
+End Sub
+Sub grouping()
+'
+' grouping Macro
+'
+
+'
+    Rows("4:32").Select
+    Selection.Rows.Ungroup
+    Selection.Rows.Group
+    Selection.Rows.Ungroup
+End Sub
+
+
+Sub BarConditFormat()
+'
+' BarConditFormat Macro
+'
+
+'
+    Range("K4:K29").Select
+    Selection.FormatConditions.AddDatabar
+    Selection.FormatConditions(Selection.FormatConditions.Count).ShowValue = True
+    Selection.FormatConditions(Selection.FormatConditions.Count).SetFirstPriority
+    With Selection.FormatConditions(1)
+        .MinPoint.Modify newtype:=xlConditionValueAutomaticMin
+        .MaxPoint.Modify newtype:=xlConditionValueAutomaticMax
+    End With
+    With Selection.FormatConditions(1).BarColor
+        .Color = 2668287
+        .TintAndShade = 0
+    End With
+    Selection.FormatConditions(1).BarFillType = xlDataBarFillGradient
+    Selection.FormatConditions(1).Direction = xlContext
+    Selection.FormatConditions(1).NegativeBarFormat.ColorType = xlDataBarColor
+    Selection.FormatConditions(1).BarBorder.Type = xlDataBarBorderSolid
+    Selection.FormatConditions(1).NegativeBarFormat.BorderColorType = _
+        xlDataBarColor
+    With Selection.FormatConditions(1).BarBorder.Color
+        .Color = 2668287
+        .TintAndShade = 0
+    End With
+    Selection.FormatConditions(1).AxisPosition = xlDataBarAxisAutomatic
+    With Selection.FormatConditions(1).AxisColor
+        .Color = 0
+        .TintAndShade = 0
+    End With
+    With Selection.FormatConditions(1).NegativeBarFormat.Color
+        .Color = 255
+        .TintAndShade = 0
+    End With
+    With Selection.FormatConditions(1).NegativeBarFormat.BorderColor
+        .Color = 255
+        .TintAndShade = 0
+    End With
+    
+    
+End Sub
+Sub returnmacro()
+'
+' returnmacro Macro
+'
+
+'
+    Range("T4:T29").Select
+    Selection.FormatConditions.AddColorScale ColorScaleType:=3
+    Selection.FormatConditions(Selection.FormatConditions.Count).SetFirstPriority
+    Selection.FormatConditions(1).ColorScaleCriteria(1).Type = _
+        xlConditionValueLowestValue
+    With Selection.FormatConditions(1).ColorScaleCriteria(1).FormatColor
+        .Color = 7039480
+        .TintAndShade = 0
+    End With
+    Selection.FormatConditions(1).ColorScaleCriteria(2).Type = _
+        xlConditionValuePercentile
+    Selection.FormatConditions(1).ColorScaleCriteria(2).Value = 50
+    With Selection.FormatConditions(1).ColorScaleCriteria(2).FormatColor
+        .Color = 16776444
+        .TintAndShade = 0
+    End With
+    Selection.FormatConditions(1).ColorScaleCriteria(3).Type = _
+        xlConditionValueHighestValue
+    With Selection.FormatConditions(1).ColorScaleCriteria(3).FormatColor
+        .Color = 8109667
+        .TintAndShade = 0
+    End With
+    
+End Sub
+Sub percent2dp()
+'
+' percent2dp Macro
+'
+
+'
+    Range("T4:T15").Select
+    Selection.Style = "Percent"
+    Selection.NumberFormat = "0.0%"
+    Selection.NumberFormat = "0.00%"
+End Sub
